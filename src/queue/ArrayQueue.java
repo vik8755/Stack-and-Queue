@@ -30,18 +30,22 @@ public class ArrayQueue<T> implements Queue<T>{
 
     @Override
     public T pop() {
-        if(size()==0){
+        if(isEmpty()){
             throw new EmptyQueueException();
         }
         T temp=arr[start];
         arr[start]=null;
         start++;
+        if(isEmpty()){
+            start=0;
+            end=-1;
+        }
         return temp;
     }
 
     @Override
     public T top() {
-        if(size()==0){
+        if(isEmpty()){
             throw new EmptyQueueException();
         }
         return arr[start];
@@ -57,6 +61,10 @@ public class ArrayQueue<T> implements Queue<T>{
         for (int index=start;index<=end;index++){
             System.out.print(arr[index]+", ");
         }
+    }
+
+    private boolean isEmpty(){
+        return size()==0;
     }
 
 }

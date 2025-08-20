@@ -22,7 +22,7 @@ public class ArrayStack<T> implements Stack<T>{
 
     @Override
     public T pop() {
-        if(size()==0){
+        if(isEmpty()){
             throw new RuntimeException("Stack is empty");
         }
         T temp=arr[index];
@@ -33,7 +33,7 @@ public class ArrayStack<T> implements Stack<T>{
 
     @Override
     public T top() {
-        if(index==-1){
+        if(isEmpty()){
             throw new RuntimeException("Empty stack");
         }
         return arr[index];
@@ -49,5 +49,9 @@ public class ArrayStack<T> implements Stack<T>{
         for (int i = 0; i <= index; i++) {
             System.out.print(arr[i] + ", ");
         }
+    }
+
+    private boolean isEmpty(){
+        return size()==0;
     }
 }
