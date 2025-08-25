@@ -10,7 +10,7 @@ public class NextSmallerElementTwo {
         Stack<Integer> stack=new Stack<>();
         for(int i=2*length-1;i>=0;i--){
             int element=arr[i%length];
-            while (!stack.isEmpty() && stack.peek() > element) {
+            while (!stack.isEmpty() && stack.peek() >= element) {
                 stack.pop();
             }
             if(i<length) {

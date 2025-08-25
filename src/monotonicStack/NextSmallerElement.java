@@ -9,7 +9,7 @@ public class NextSmallerElement {
         int[] nextSmallerElements = new int[length];
         Stack<Integer> stack=new Stack<>();
         for(int i=length-1;i>=0;i--){
-            while (!stack.isEmpty() && stack.peek() > arr[i]) {
+            while (!stack.isEmpty() && stack.peek() >= arr[i]) {
                 stack.pop();
             }
             nextSmallerElements[i] = stack.isEmpty() ? -1 : stack.peek();
